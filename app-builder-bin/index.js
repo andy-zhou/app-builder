@@ -7,7 +7,7 @@ function getPath() {
     return "app-builder"
   }
 
-  const platform = process.platform;
+  const platform = process.env.ENABLE_WSL_BUILDS ? "win32" : process.platform;
   if (platform === "darwin") {
     return path.join(__dirname, "mac", "app-builder")
   }
